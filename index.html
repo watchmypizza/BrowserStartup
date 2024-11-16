@@ -10,21 +10,15 @@
         body {
             margin: 0;
             overflow: hidden;
-            /* Hide scrollbars */
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             height: 100vh;
-            /* Full height */
             position: relative;
-            /* Position relative for child elements */
             background-color: rgba(255, 255, 255, 0.5);
-            /* More transparent background */
             backdrop-filter: blur(10px);
-            /* Apply blur effect */
             z-index: 1;
-            /* Ensure body is above video */
         }
 
         video {
@@ -32,93 +26,62 @@
             top: 50%;
             left: 50%;
             width: 100%;
-            /* Fill the screen width */
             height: 100%;
-            /* Fill the screen height */
             object-fit: cover;
-            /* Maintain aspect ratio and fill */
             transform: translate(-50%, -50%);
-            /* Center the video */
             z-index: -1;
-            /* Place video behind other elements */
         }
 
-        /* Styling for the search container */
         .search-container {
             z-index: 1;
-	    background-color: #2b2a33
-            /* Place search box above the video */
+            background-color: #2b2a33;
             text-align: center;
-            /* Center align contents */
         }
 
-        /* Google logo */
         .google-logo {
             width: 150px;
-            /* Width of the Google logo */
             margin-bottom: 20px;
-            /* Space between logo and search bar */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Styling for the search input */
         .search-input {
             position: relative;
             border: 1px solid #ccc;
             border-radius: 24px;
-            /* Rounded corners */
             width: 400px;
-            /* Width of the search input */
             padding: 10px 40px 10px 20px;
-            /* Padding for input field */
             font-size: 16px;
-            /* Font size */
             transition: border-color 0.3s;
-            /* Transition for border color */
         }
 
-        /* Remove outline on focus */
         .search-input:focus {
             outline: none;
-	    color: #6c6868
-            /* Remove the default outline */
+            color: #6c6868;
         }
 
-        /* Styling for the arrow button */
         .search-arrow {
             position: absolute;
             right: 10px;
-            /* Positioning of the arrow */
             top: 50%;
-            /* Center vertically */
             transform: translateY(-50%);
-            /* Center vertically */
             width: 20px;
-            /* Width of the arrow */
             height: 20px;
-            /* Height of the arrow */
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l-4-4m0 0l4-4m-4 4h18"/></svg>') no-repeat center center;
-            /* Arrow icon */
             background-size: contain;
-            /* Maintain aspect ratio */
             opacity: 0;
-            /* Initially hidden */
             transition: opacity 0.3s;
-            /* Fade transition */
             cursor: pointer;
-            /* Show pointer on hover */
         }
 
-        /* Arrow visible when typing */
         .search-input:focus+.search-arrow,
         .search-input:not(:placeholder-shown)+.search-arrow {
             opacity: 1;
-            /* Show the arrow */
         }
 
-        /* Button styling */
         input[type="submit"] {
             display: none;
-            /* Hide submit button */
         }
     </style>
 </head>
@@ -130,8 +93,7 @@
     </video>
 
     <div class="search-container">
-        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo"
-            class="google-logo">
+        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo" class="google-logo">
         <form action="https://www.google.com/search" method="get" id="searchForm">
             <input type="text" name="q" class="search-input" placeholder="Search Google..." required>
             <div class="search-arrow" onclick="document.getElementById('searchForm').submit()"></div>
@@ -142,3 +104,4 @@
 </body>
 
 </html>
+
